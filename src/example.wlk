@@ -16,9 +16,12 @@ object loboFeroz {
 	method comer(pesoComida){
 		return self.actualizarPeso(pesoComida*0.1)
 	}
-	method estaCorriendo(corriendo){
-		return 
+	method hablar(){
+		return "asdasd"
 	}
 }
+
+//Return cuando devuelve algo, es un método de tipo funcion
+//Cuando no hay return es un método de indicacion
 
 //Hice un re cambio perriiii jejejjee
