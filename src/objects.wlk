@@ -3,6 +3,7 @@ object feroz {
 	var peso = 10
 	var disfrazado = false
 	var disfraz 
+	
 	method disfraz(){return disfraz}
 	method peso(){
 		return peso
@@ -17,7 +18,6 @@ object feroz {
 
 	method sufreCrisis(){
 		peso = 10
-		return peso
 	}
 	method comer(comida){
 		return self.actualizarPeso(comida.peso() * 0.1)
@@ -55,8 +55,7 @@ object caperusita{
 		return peso
 	}
 	method cargarCanasta(cantidad,fruta){
-		peso = self.actualizarPeso(cantidad * fruta.peso())
-		manzanas += cantidad
+ 		manzanas += cantidad
 	}
 	method quitarManzanaCanasta(){
 		peso = self.actualizarPeso(-1*manzana.peso())
@@ -90,6 +89,45 @@ object abuelita{
 	}
 	method disfraz(){
 		return "Disfraz abuelita"
+	}
+}
+
+object cazador{
+	const peso = 70
+	const arma = escopeta
+	method peso(){
+		return peso
+	}
+	method arma(){return arma}
+	
+	method dispararAFeroz(){
+		if(arma.tieneBalas()){
+			arma.disparar()
+			feroz.sufreCrisis()
+		}
+		else{
+			feroz.comer(self)
+		}
+	}
+}
+object escopeta{
+	var balas = 2
+	method tieneBalas(){
+		return balas>0
+		}
+
+	method disparar(){
+		if (balas > 0){
+			balas -=1
+		}
+		return balas
+	}
+	method recargar(){
+		balas = 2
+		return balas
+	}
+	method balas(){
+		return balas
 	}
 }
 
